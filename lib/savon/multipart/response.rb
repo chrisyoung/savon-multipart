@@ -30,7 +30,7 @@ module Savon
 
       private
       def multipart?
-        http.headers['Content-Type'] =~ /^multipart/
+        http.headers['Content-Type'] =~ /^multipart/i
       end
 
       def boundary
