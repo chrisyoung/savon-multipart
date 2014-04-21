@@ -19,13 +19,9 @@ module Savon
         end
       end
 
-      def to_xml
-        if multipart?
-          parse_body unless @has_parsed_body
-          @parts.first.body.to_s
-        else
-          super
-        end
+      def body
+        parse_body unless @has_parsed_body
+        nori.parse(@parts.first.body.to_s)
       end
 
       private
